@@ -6,6 +6,7 @@ import moment from "moment"
 
 const TaskCard = ({
     key,
+    name,
     title,
     description,
     priority,
@@ -88,6 +89,7 @@ const TaskCard = ({
                 </div>
                 <div className="flex items-center justify-between mt-3">
                     <AvatarGroup avatars={assignedTo || []} />
+                    <p className='text-md font-bold text-black'>{name || []}<p/>
 
                     {attachmentCount > 0 && (
                         <div className="flex items-center gap-2 bg-blue-50 px-2.5 py-1.5 rounded-lg">
