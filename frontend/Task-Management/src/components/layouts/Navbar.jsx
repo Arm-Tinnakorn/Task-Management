@@ -41,19 +41,6 @@ const Navbar = ({ activeMenu }) => {
         fetchNotifications()
     }, [])
 
-
-useEffect(() => {
-  const interval = setInterval(async () => {
-    const res = await axiosInstance.get('/api/tasks/dashboard');
-    setNotifications(res.data.recentTasks); // หรือ filter เอาเฉพาะ completed
-  }, 10000); // ทุก 10 วิ
-
-  return () => clearInterval(interval); // ล้างตอน unmount
-}, []);
-
-
-
-
     return (
         <>
             {/* Main Navbar */}
