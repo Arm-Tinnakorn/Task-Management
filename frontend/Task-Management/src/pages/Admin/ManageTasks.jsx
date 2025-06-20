@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import DashboardLayout from '../../components/layouts/DashboardLayout'
 import { useNavigate } from 'react-router-dom';
-import { LuFileSpreadsheet, LuTasks, LuSparkles, LuDownload } from 'react-icons/lu';
+import { LuFileSpreadsheet, LuSparkles, LuDownload, LuBookCheck } from 'react-icons/lu';
 import { HiOutlineDocumentReport, HiOutlineFilter } from 'react-icons/hi';
 import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPath';
@@ -90,7 +90,7 @@ const ManageTasks = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-red-500 rounded-2xl blur-lg opacity-20"></div>
                 <div className="relative bg-gradient-to-r from-blue-500 to-red-500 p-3 rounded-2xl shadow-lg">
-                  <LuTasks className="text-white text-2xl" />
+                  <LuBookCheck className="text-white text-2xl" />
                 </div>
               </div>
               
@@ -186,7 +186,7 @@ const ManageTasks = () => {
             <div className="relative mb-6">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-red-500 rounded-full blur-xl opacity-20"></div>
               <div className="relative bg-gradient-to-r from-blue-100 to-red-100 p-8 rounded-full">
-                <LuTasks className="text-6xl text-gray-400" />
+                <LuBookCheck className="text-6xl text-gray-400" />
               </div>
             </div>
             <h3 className="text-xl font-bold text-gray-700 mb-2">No tasks found</h3>
