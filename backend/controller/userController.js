@@ -75,7 +75,7 @@ const updateProfileAvatar = async (req, res) => {
         // ตรวจสอบ BASE_URL ใน Frontend และ Backend ให้ตรงกัน
         // และต้องมี '/' ระหว่าง BASE_URL กับ 'uploads'
         // แนะนำให้ดึง BASE_URL จาก environment variables (process.env.BASE_URL)
-        const baseUrl = process.env.BASE_URL || 'http://localhost:8000'; // ควรตั้งค่าใน .env
+        const baseUrl = process.env.BASE_URL || 'https://task-management-wkrz.onrender.com'; // ควรตั้งค่าใน .env
         const profileImageUrl = `${baseUrl}/uploads/${req.file.filename}`;
 
         // 4. อัปเดตฟิลด์ profileImageUrl ของผู้ใช้ในฐานข้อมูล
