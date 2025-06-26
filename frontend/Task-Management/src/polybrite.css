@@ -1,6 +1,12 @@
 /* Poly Brite Theme - Additional CSS Styles */
 /* Add these styles to your global CSS file or create a separate polybrite.css */
 
+@layer {
+  body {
+    overflow-x: hidden;
+  }
+}
+
 /* Enhanced Input Styling */
 .polybrite-input {
   @apply relative;

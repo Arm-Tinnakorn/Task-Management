@@ -28,10 +28,10 @@ const DashboardLayout = ({ children, activeMenu }) => {
                         </div>
                         
                         {/* Content Container */}
-                        <div className='relative z-10 p-6 lg:p-8'>
+                        <div className='relative  z-10 lg:p-8 '>
                             <div className='max-w-7xl mx-auto'>
                                 {/* Content with enhanced styling */}
-                                <div className='bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-gray-200/50 p-6 lg:p-8 min-h-[calc(100vh-140px)]'>
+                                <div className='bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-gray-200/50 p-5 lg:p-8 min-h-[calc(100vh-140px)]'>
                                     {children}
                                 </div>
                             </div>

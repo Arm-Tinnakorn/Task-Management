@@ -223,4 +223,4 @@ const ManageTasks = () => {
   )
 }
 
-export default ManageTasks
+export default MyTasks

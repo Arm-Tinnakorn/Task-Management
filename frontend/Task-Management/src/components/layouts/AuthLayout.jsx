@@ -1,5 +1,6 @@
 import React from 'react'
 import UI_IMG from "../../assets/images/auth.jpg"
+import CloudinaryImg from '../../utils/CloudinaryImg'
 
 const AuthLayout = ({ children }) => {
   return (
@@ -94,6 +95,9 @@ const AuthLayout = ({ children }) => {
               className='w-48 lg:w-64 drop-shadow-2xl rounded-2xl border-4 border-white border-opacity-20' 
               alt="Task Management Interface"
             />
+            <div className="w-48 lg:w-64 drop-shadow-2xl rounded-2xl border-4 border-white border-opacity-20">
+            <CloudinaryImg />
+            </div>
             <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/20 to-transparent rounded-3xl blur-xl"></div>
           </div>
         </div>

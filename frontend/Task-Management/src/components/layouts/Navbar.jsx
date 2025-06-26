@@ -42,19 +42,11 @@ const Navbar = ({ activeMenu }) => {
         fetchNotifications()
     }, [])
 
-    useEffect(() => {
-        const interval = setInterval(async () => {
-            const res = await axiosInstance.get('/api/tasks/dashboard');
-            setNotifications(res.data.recentTasks);
-        }, 10000);
-
-        return () => clearInterval(interval);
-    }, []);
 
     return (
         <>
             {/* Main Navbar with Poly Brite Theme */}
-            <div className='flex items-center justify-between bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 backdrop-blur-md border-b border-blue-400/30 py-3 px-4 lg:px-6 sticky top-0 z-40 shadow-lg shadow-blue-500/20'>
+            <div className='flex flex-wrap w-full items-center justify-between bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 backdrop-blur-md border-b border-blue-400/30 py-3 px-4 lg:px-6 sticky top-0 z-40 shadow-lg shadow-blue-500/20'>
                 {/* Left Section */}
                 <div className='flex items-center gap-3'>
                     {/* Mobile Menu Button */}
@@ -120,7 +112,7 @@ const Navbar = ({ activeMenu }) => {
 
                         {/* Enhanced Notification Dropdown */}
                         {showNotification && (
-                            <div className="absolute right-0 mt-3 w-80 max-w-[90vw] bg-white shadow-2xl rounded-2xl border border-gray-100 z-50 max-h-96 overflow-hidden">
+                            <div className="absolute right-0 mt-3 w-80 max-w-[90vw]  bg-white shadow-2xl rounded-2xl border border-gray-100 z-50 max-h-96 overflow-hidden">
                                 {/* Header with Poly Brite styling */}
                                 <div className="p-4 bg-gradient-to-r from-blue-50 to-blue-100 border-b border-blue-200">
                                     <div className="flex items-center gap-2">
@@ -229,7 +221,7 @@ const Navbar = ({ activeMenu }) => {
             )}
 
             {/* Custom Styles for Scrollbar */}
-            <style jsx>{`
+            <style jsx="true">{`
                 .scrollbar-thin {
                     scrollbar-width: thin;
                 }
