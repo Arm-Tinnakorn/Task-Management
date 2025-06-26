@@ -82,7 +82,7 @@ const SideMenu = ({ activeMenu, onClose }) => {
                         <div className={`w-1.5 h-1.5 rounded-full ${
                             user?.role === "admin" ? "bg-blue-500" : "bg-gray-400"
                         }`}></div>
-                        {user?.role === "admin" ? "Administrator" : "Team Member"}
+                        {user?.role === "admin" ? "Administrator" : "User List"}
                     </div>
                 </div>
             </div>
