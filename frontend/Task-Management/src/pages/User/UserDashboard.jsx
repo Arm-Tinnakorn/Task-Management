@@ -17,7 +17,7 @@ import CustomBarChart from '../../components/Charts/CustomBarChart';
 // Poly Brite Color Scheme
 const COLORS = ["#800080", "#1E90FF", "#008000"] // Blue, Red, Yellow
 
-const Dashboard = () => {
+const UserDashboard = () => {
   useUserAuth();
   const { user } = useContext(UserContext)
   const navigate = useNavigate();

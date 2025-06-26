@@ -8,7 +8,7 @@ import { API_PATHS } from '../../utils/apiPath';
 import TaskStatusTabs from '../../components/TaskStatusTabs';
 import TaskCard from '../../components/Cards/TaskCard';
 
-const ManageTasks = () => {
+const MyTasks = () => {
   const [allTasks, setAllTasks] = useState([]);
   const [tabs, setTabs] = useState([]);
   const [filterStatus, setFilterStatus] = useState("All")
