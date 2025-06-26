@@ -1,13 +1,14 @@
 const Task = require("../models/Task");
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
+const cloudinary = require('../utils/cloudinary')
 
 //@desc Get all users (Admin only)
 //@route GET /api/users/
 //@access Private (Admin)
 const getUsers = async (req, res) => {
     try {
-        const users = await User.find({ role:"user"}).select("-password");
+        const users = await User.find({ role: "user" }).select("-password");
 
         //Add task counts to each user
         const usersWithTaskCounts = await Promise.all(
@@ -24,7 +25,7 @@ const getUsers = async (req, res) => {
                     assignedTo: user._id,
                     status: "Completed",
                 });
-        
+
                 return {
                     ...user._doc, //Include all existing user data
                     pendingTasks,
@@ -33,10 +34,10 @@ const getUsers = async (req, res) => {
                 };
             }));
 
-            res.json(usersWithTaskCounts);
-    }catch (error) {
+        res.json(usersWithTaskCounts);
+    } catch (error) {
         res.status(500).json({ message: "Server error", error: error.message });
-    } 
+    }
 };
 
 //@desc Get user by ID
@@ -45,11 +46,11 @@ const getUsers = async (req, res) => {
 const getUserById = async (req, res) => {
     try {
         const user = await User.findById(req.params.id).select("-password");
-        if (!user) return res.status(404).json({ message: "User not found"});
+        if (!user) return res.status(404).json({ message: "User not found" });
         res.json(user);
-    }catch (error) {
+    } catch (error) {
         res.status(500).json({ message: "Server error", error: error.message });
-    } 
+    }
 };
 
 //@desc Update user profile avatar
@@ -71,12 +72,23 @@ const updateProfileAvatar = async (req, res) => {
 
         const userId = req.user._id; // ดึง User ID ของผู้ใช้ที่ล็อกอินอยู่
 
+        const result = await cloudinary.uploader.upload(req.file.path, {
+            folder: '',
+            public_id: req.user._id.toString(),
+            overwrite: true,
+        })
+
         // 3. สร้าง URL ของรูปภาพที่ถูกบันทึก
         // ตรวจสอบ BASE_URL ใน Frontend และ Backend ให้ตรงกัน
         // และต้องมี '/' ระหว่าง BASE_URL กับ 'uploads'
         // แนะนำให้ดึง BASE_URL จาก environment variables (process.env.BASE_URL)
-        const baseUrl = process.env.BASE_URL || 'https://task-management-wkrz.onrender.com'; // ควรตั้งค่าใน .env
-        const profileImageUrl = `${baseUrl}/uploads/${req.file.filename}`;
+        const baseUrl = process.env.BASE_URL || 'https://api.cloudinary.com/v1_1/dnwbwptal/image/upload'; // ควรตั้งค่าใน .env
+        const profileImageUrl = result.secure_url;
+
+
+
+        console.log(result)
+
 
         // 4. อัปเดตฟิลด์ profileImageUrl ของผู้ใช้ในฐานข้อมูล
         const updatedUser = await User.findByIdAndUpdate(
