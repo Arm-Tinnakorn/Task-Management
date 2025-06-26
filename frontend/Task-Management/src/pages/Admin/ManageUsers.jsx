@@ -47,7 +47,7 @@ const ManageUsers = () => {
     return () => {}
   }, [])
   return (
-    <DashboardLayout activeMenu="Team Members">
+    <DashboardLayout activeMenu="User List">
       <div className="mt-5 mb-10">
         <div className="flex md:flex-row md:items-center justify-between">
           <h2 className="text-xl md:text-xl font-medium">User List</h2>
